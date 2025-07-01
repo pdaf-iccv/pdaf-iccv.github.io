@@ -13,14 +13,14 @@
         href="./static/images/favicon.ico"/> -->
 
   <meta name="description"
-        content="UniRestore bridges the gap between Perceptual Image Restoration (PIR) and Task-oriented Image Restoration (TIR) by leveraging a diffusion prior and adaptive feature fusion. While PIR enhances visual quality and TIR improves downstream task performance, UniRestore optimizes both aspects by integrating Complementary Feature Restoration Module (CFRM) and Task Feature Adapter (TFA), ensuring high-quality restorations that support downstream vision tasks effectively.">
-  <meta name="keywords" content="Image Restoration, Image Enhancement, Multitask Learning, Diffusion Models, Image Generation">
+        content="">
+  <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:image" content="./unirestore_files/logo.png"/>
-  <link rel="image_src" href="./unirestore_files/logo.png">
+  <meta property="og:image" content=""/>
+  <link rel="image_src" href="">
   <link rel="icon"
         type="image/x-icon"
-        href="./unirestore_files/logo.png"/>
+        href=""/>
 
   <title>Exploring Probabilistic Modeling Beyond Domain Generalization for Semantic Segmentation
     </title>
@@ -107,17 +107,17 @@
           Exploring Probabilistic Modeling Beyond Domain Generalization for Semantic Segmentation
         </h1>
         <div class="is-size-5 publication-authors">
-          <div class="author-block"><a href="https://sites.google.com/view/cihsiang/home">I-Hsiang Chen</a> <sup> 1* </sup></div>
+          <div class="author-block"><a href="https://sites.google.com/view/cihsiang/home">I-Hsiang Chen</a> <sup> 1,5* </sup></div>
           <div class="author-block"><a href="">Hua-En Chang</a> <sup> 1* </sup></div>
-          <div class="author-block"><a href="https://sites.google.com/view/weitingchen/home"> Wei-Ting Chen</a> <sup> 1,2,4*</sup></div>
-          <div class="author-block"><a href=""> Jenq-Neng Hwang</a> <sup> 1,3</sup></div>
+          <div class="author-block"><a href="https://sites.google.com/view/weitingchen/home"> Wei-Ting Chen</a> <sup> 1,2,4</sup></div>
+          <div class="author-block"><a href=""> Jenq-Neng Hwang</a> <sup> 5</sup></div>
           <div class="author-block"><a href="https://homepage.ntu.edu.tw/~sykuo"> Sy-Yen Kuo</a> <sup> 1,3</sup></div>
-        <!-- <div class="is-size-5 publication-authors">
+        <div class="is-size-5 publication-authors">
           <span class="author-block"><sup>1</sup>National Taiwan University</span>
           <span class="author-block"><sup>2</sup>Microsoft</span>
           <span class="author-block"><sup>3</sup>Chang Gung University</span>
           <span class="author-block"><sup>4</sup>UC Merced</span>
-          <span class="author-block"><sup>5</sup>Google Research</spa> -->
+          <span class="author-block"><sup>5</sup>University of Washington</spa>
         </div>
 
         <!-- <div class="is-size-5 publication-authors">
@@ -149,7 +149,7 @@
                 </a>
             </span>
             <span class="link-block">
-              <a href=""  
+              <a href="https://github.com/pdaf-iccv/PDAF"  
                  class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                     <i class="fab fa-github"></i>
@@ -159,7 +159,7 @@
             </span>
             <!-- Dataset Link. -->
             <span class="link-block">
-              <a href="" 
+              <a href="https://github.com/pdaf-iccv/PDAF" 
                  class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
                     <i class="far fa-images"></i>
@@ -175,40 +175,35 @@
 </section>
 
 
-<!-- <section class="hero teaser">
+<section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video autoplay muted loop playsinline style="width: 100%; height: auto; border-radius: 12px;">
-        <source src="./unirestore_files/teaser/teaser2.mp4" type="video/mp4">
+        <source src="" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <h2 class="subtitle has-text-centered">
-        <span class="methodname">UniRestore</span> is a unified image restoration framework for both perceptual and machine vision.
+        <span class="methodname">PDAF</span> is a probabilistic framework for enhancing robustness of semantic segmentation.
       </h2>
     </div>
   </div>
-</section>  -->
+</section> 
 
 
 
-<!-- <div class="columns is-centered">
+<div class="columns is-centered">
   <div class="column is-two-thirds has-text-justified">
     <p>
-      <b>UniRestore</b> leverages diffusion prior to unify <span class="tag is-light is-info">Perceptual Image Restoration (PIR)</span> 
-      and <span class="tag is-light is-warning">Task-oriented Image Restoration (TIR)</span>,
-      achieving both high visual fidelity and task utility.
-      <b>PIR</b> enhances visual clarity, but its outputs may not benefit recognition tasks.
-      In contrast, <b>TIR</b> optimizes features for tasks like classification or segmentation,
-      but often compromises visual appeal.
+
     </p>
   </div>
-</div> -->
+</div>
 
 
 
 <hr/>
 <!DOCTYPE html>
-<!-- <html lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -230,7 +225,7 @@
 </head>
 <body>
     <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/Jm1NkDDXN90" 
+        <iframe src="" 
 			title="YouTube video player" 
 			frameborder="0" 
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -239,7 +234,7 @@
 		</iframe>
     </div>
 </body>
-</html> -->
+</html>
 
 
 
@@ -280,6 +275,208 @@
   }
 </style>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content has-text-justified">
+      <h2 class="title is-3 has-text-centered">Architecture of PDAF</h2>
+      <p>
+
+      <div class="has-text-centered">
+        <img style="width: 100%;" src="./pdaf_files/model/overview_arch.pdf"
+             alt="Architecture of PDAF."/>
+
+        <div class="content has-text-justified">
+          <p>
+		        PDAF augments a pre-trained segmentation network by introducing LDP modeling to enhance its domain generalization. The LPE learns the optimal LDP by modeling cross-domain relationships between source and pseudo-target domains, while DPE is employed to estimate LDP using only target inputs. Finally, the DCM enhances segmentation network with LDP guidance, refining feature alignment and improving domain generalization.
+        </div> 
+      </div>
+
+      <h3 class="title is-4 has-text-centered">Proposed Modules</h3>
+      <div class="columns is-multiline is-variable is-6">
+        
+        <!-- LPE Image -->
+        <div class="column is-one-third">
+          <figure class="image">
+            <img src="./pdaf_files/model/module_LPE.pdf" alt="LPE Diagram" />
+          </figure>
+        </div>
+
+        <!-- DCM Image -->
+        <div class="column is-one-third">
+          <figure class="image">
+            <img src="./pdaf_files/model/module_DCM.pdf" alt="DCM Diagram" />
+          </figure>
+        </div>
+
+        <!-- DPE Image -->
+        <div class="column is-one-third">
+          <figure class="image">
+            <img src="./pdaf_files/model/module_DPE.pdf" alt="DPE Diagram" />
+          </figure>
+        </div>
+
+        <!-- LPE Text -->
+        <div class="column is-one-third">
+          <p class="content has-text-justified">
+            <span class="tag is-light" style="background-color: #ffeef0; color: #b30033;">Latent Prior Estimator (LPE)</span> 
+            is designed to estimate the optimal LDP by supervising cross-domain feature relationships, providing effective guidance for feature alignment. 
+          </p>
+        </div>
+
+        <!-- DCM Text -->
+        <div class="column is-one-third">
+          <p class="content has-text-justified">
+            <span class="tag is-light" style="background-color: #e7f6e7; color: #1e5e1e;">Domain Compensation Module (DCM)</span> 
+            leverages LDP as a compensation mechanism, providing domain-aware modulation to improve feature alignment.
+          </p>
+        </div>
+
+        <!-- DPE Text -->
+        <div class="column is-one-third">
+          <p class="content has-text-justified">
+            <span class="tag is-light" style="background-color: #e7f6e7; color: #2a109f;">Diffusion Prior Estimator (DPE)</span> 
+            estimate the LDP by probabilistic diffusion modeling, enabling arbitrary target domain and accurate prior estimation for domain alignment.
+          </p>
+        </div>
+
+      </div>
+
+     <p>
+        <em>
+        
+        </em>
+      </p>
+  </div>
+</section>
+
+<hr/>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content has-text-justified">
+      <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
+      <p> 
+        Description  
+      </p>
+      <div class="img-container">
+        <div class="image-with-caption">
+            <div class="caption"></b>Comparison with existing methods trained on Cityscapes.</b></div>
+            <img style="width: 100%;" src=""/>
+        </div>
+      </div>
+
+      <div class="img-container">
+        <div class="image-with-caption">
+            <div class="caption"></b>Comparison with existing methods trained on GTAV.</b></div>
+            <img style="width: 100%;" src=""/>
+        </div>
+      </div>
+
+
+      <p>
+          <em>
+            comment
+          </em>
+        </p>
+    </div>
+  </div>
+</section>
+
+
+<hr/>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content has-text-justified">
+      <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
+      <p>
+        Description
+      </p>
+
+      <div class="img-container">
+        <div class="image-with-caption">
+          <img class="regular-gif" src="">
+        </div>
+        <div class="image-with-caption">
+          <img class="regular-gif" src="">
+        </div>
+        <div class="image-with-caption">
+          <img class="regular-gif" src="">
+        </div>
+        <div class="image-with-caption">
+          <img class="regular-gif" src="">
+        </div>
+      </div>
+      
+      <div class="img-container">
+        <div class="image-with-caption">
+          <img class="regular-gif" src="">
+        </div>
+        <div class="image-with-caption">
+          <img class="regular-gif" src="">
+        </div>
+        <div class="image-with-caption">
+          <img class="regular-gif" src="">
+        </div>
+        <div class="image-with-caption">
+          <img class="regular-gif" src="">
+        </div>
+      </div>
+      
+      <div class="img-container">
+        <div class="image-with-caption">
+          <img class="regular-gif" src="">
+        </div>
+        <div class="image-with-caption">
+          <img class="regular-gif" src="">
+        </div>
+        <div class="image-with-caption">
+          <img class="regular-gif" src="">
+        </div>
+        <div class="image-with-caption">
+          <img class="regular-gif" src="">
+        </div>
+      </div>
+      
+      <div class="img-container">
+        <div class="image-with-caption">
+          <img class="regular-gif" src="">
+        </div>
+        <div class="image-with-caption">
+          <img class="regular-gif" src="">
+        </div>
+        <div class="image-with-caption">
+          <img class="regular-gif" src="">
+        </div>
+        <div class="image-with-caption">
+          <img class="regular-gif" src="">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<hr/>
+<section class="section" id="BibTeX">
+  <div class="container content is-max-desktop">
+    <h2 class="title">BibTeX</h2>
+    <pre><code></code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://github.com/unirestore/UniRestore">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/unirestore/UniRestore" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </div>
+</footer>
 
 <script type="text/javascript" src="./static/slick/slick.min.js"></script>
 </body>
