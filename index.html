@@ -72,7 +72,10 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
-
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
@@ -107,17 +110,16 @@
           Exploring Probabilistic Modeling Beyond Domain Generalization for Semantic Segmentation
         </h1>
         <div class="is-size-5 publication-authors">
-          <div class="author-block"><a href="https://sites.google.com/view/cihsiang/home">I-Hsiang Chen</a> <sup> 1,5* </sup></div>
+          <div class="author-block"><a href="https://sites.google.com/view/cihsiang/home">I-Hsiang Chen</a> <sup> 1,2* </sup></div>
           <div class="author-block"><a href="">Hua-En Chang</a> <sup> 1* </sup></div>
-          <div class="author-block"><a href="https://sites.google.com/view/weitingchen/home"> Wei-Ting Chen</a> <sup> 1,2,4</sup></div>
-          <div class="author-block"><a href=""> Jenq-Neng Hwang</a> <sup> 5</sup></div>
-          <div class="author-block"><a href="https://homepage.ntu.edu.tw/~sykuo"> Sy-Yen Kuo</a> <sup> 1,3</sup></div>
+          <div class="author-block"><a href="https://sites.google.com/view/weitingchen/home"> Wei-Ting Chen</a> <sup>3</sup></div>
+          <div class="author-block"><a href=""> Jenq-Neng Hwang</a> <sup> 2</sup></div>
+          <div class="author-block"><a href="https://homepage.ntu.edu.tw/~sykuo"> Sy-Yen Kuo</a> <sup>1,4</sup></div>
         <div class="is-size-5 publication-authors">
           <span class="author-block"><sup>1</sup>National Taiwan University</span>
-          <span class="author-block"><sup>2</sup>Microsoft</span>
-          <span class="author-block"><sup>3</sup>Chang Gung University</span>
-          <span class="author-block"><sup>4</sup>UC Merced</span>
-          <span class="author-block"><sup>5</sup>University of Washington</spa>
+          <span class="author-block"><sup>2</sup>University of Washington</spa>
+          <span class="author-block"><sup>3</sup>Microsoft</span>
+          <span class="author-block"><sup>4</sup>Chang Gung University</span>
         </div>
 
         <!-- <div class="is-size-5 publication-authors">
@@ -176,12 +178,18 @@
 
 
 <section class="hero teaser">
+  <div class="img-container">
+    <div class="image-with-caption">
+      <img class="regular-gif" src="./pdaf_files/teaser/teaser_img.png" style="width: 60%; height: auto;">
+    </div>
+  </div>
   <div class="container is-max-desktop">
+    
     <div class="hero-body">
-      <video autoplay muted loop playsinline style="width: 100%; height: auto; border-radius: 12px;">
+      <!-- <video autoplay muted loop playsinline style="width: 100%; height: auto; border-radius: 12px;">
         <source src="" type="video/mp4">
         Your browser does not support the video tag.
-      </video>
+      </video> -->
       <h2 class="subtitle has-text-centered">
         <span class="methodname">PDAF</span> is a probabilistic framework for enhancing robustness of semantic segmentation.
       </h2>
@@ -191,17 +199,17 @@
 
 
 
-<div class="columns is-centered">
+<!-- <div class="columns is-centered">
   <div class="column is-two-thirds has-text-justified">
     <p>
 
     </p>
   </div>
-</div>
+</div> -->
 
 
 
-<hr/>
+<!-- <hr/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -234,7 +242,7 @@
 		</iframe>
     </div>
 </body>
-</html>
+</html> -->
 
 
 
@@ -279,8 +287,6 @@
   <div class="container is-max-desktop">
     <div class="content has-text-justified">
       <h2 class="title is-3 has-text-centered">Architecture of PDAF</h2>
-      <p>
-
       <div class="has-text-centered">
         <img style="width: 100%;" src="./pdaf_files/model/overview_arch.pdf"
              alt="Architecture of PDAF."/>
@@ -290,7 +296,17 @@
 		        PDAF augments a pre-trained segmentation network by introducing LDP modeling to enhance its domain generalization. The LPE learns the optimal LDP by modeling cross-domain relationships between source and pseudo-target domains, while DPE is employed to estimate LDP using only target inputs. Finally, the DCM enhances segmentation network with LDP guidance, refining feature alignment and improving domain generalization.
         </div> 
       </div>
-
+      <p></p>
+        To generalize across domain shifts, we cast DGSS as a probabilistic learning problem. The prediction function of PDAF is formulated as:
+        \[
+          p_{\theta,\phi}(y_t|x_t) = \int p_\theta(y_t|x_t,z)p_\phi(z|x_t)dz
+        \]
+        The objective function is derived as following:
+        \[
+          \log p_{\theta, \phi}(y_t | x_t) \geq \mathbb{E}_{q_\varphi(z | x_t, x_s)} \left[ \log p_\theta(y_t | x_t, z) \right] - \mathbb{KL} \left[ q_\varphi(z | x_t, x_s) || p_\phi(z | x_t) \right].
+        \]
+        Each term in the loss function is modeled and optimized by the following modules.
+      <p>
       <h3 class="title is-4 has-text-centered">Proposed Modules</h3>
       <div class="columns is-multiline is-variable is-6">
         
@@ -355,28 +371,29 @@
     <div class="content has-text-justified">
       <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
       <p> 
-        Description  
+        Quantitative results presents a performance comparison of domain generalization methods on two training settings: Cityscapes (real-world) and GTAV (synthetic). Consistent improvements of PDAF across different scenarios and backbones (ResNet-50, Swin-T, Swin-L), highlighting the method's generalization ability and overall effectiveness.
       </p>
       <div class="img-container">
-        <div class="image-with-caption">
-            <div class="caption"></b>Comparison with existing methods trained on Cityscapes.</b></div>
-            <img style="width: 100%;" src=""/>
+        <div class="column is-half">
+          <div class="image-with-caption">
+              <div class="caption"></b>Comparison with existing methods trained on Cityscapes.</b></div>
+              <img style="width: 100%;" src="./pdaf_files/Quantitative/table1.png"/>
+          </div>
+        </div>
+
+        <div class="column is-half">
+          <div class="image-with-caption">
+              <div class="caption"></b>Comparison with existing methods trained on GTAV.</b></div>
+              <img style="width: 100%;" src="./pdaf_files/Quantitative/table2.png"/>
+          </div>
         </div>
       </div>
 
-      <div class="img-container">
-        <div class="image-with-caption">
-            <div class="caption"></b>Comparison with existing methods trained on GTAV.</b></div>
-            <img style="width: 100%;" src=""/>
-        </div>
-      </div>
 
-
-      <p>
+      <!-- <p>
           <em>
-            comment
           </em>
-        </p>
+        </p> -->
     </div>
   </div>
 </section>
@@ -388,68 +405,68 @@
     <div class="content has-text-justified">
       <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
       <p>
-        Description
+        PDAF effectively enhances the generalization ability of baseline model, preserving detailed structural information—such as road boundaries and object contours—resulting in more precise and consistent segmentation outcomes.
       </p>
 
       <div class="img-container">
         <div class="image-with-caption">
-          <img class="regular-gif" src="">
+          <img class="regular-gif" src="./pdaf_files/Qualitative/7ec0c9b1-00000000/0_Input.jpg">
         </div>
         <div class="image-with-caption">
-          <img class="regular-gif" src="">
+          <img class="regular-gif" src="./pdaf_files/Qualitative/7ec0c9b1-00000000/8.gif">
         </div>
         <div class="image-with-caption">
-          <img class="regular-gif" src="">
+          <img class="regular-gif" src="./pdaf_files/Qualitative/84076906-00000000/0_Input.jpg">
         </div>
         <div class="image-with-caption">
-          <img class="regular-gif" src="">
+          <img class="regular-gif" src="./pdaf_files/Qualitative/84076906-00000000/8.gif">
         </div>
       </div>
       
       <div class="img-container">
         <div class="image-with-caption">
-          <img class="regular-gif" src="">
+          <img class="regular-gif" src="./pdaf_files/Qualitative/9fb944ec-00000000/0_Input.jpg">
         </div>
         <div class="image-with-caption">
-          <img class="regular-gif" src="">
+          <img class="regular-gif" src="./pdaf_files/Qualitative/9fb944ec-00000000/8.gif">
         </div>
         <div class="image-with-caption">
-          <img class="regular-gif" src="">
+          <img class="regular-gif" src="./pdaf_files/Qualitative/a2297c18-876eb30b/0_Input.jpg">
         </div>
         <div class="image-with-caption">
-          <img class="regular-gif" src="">
+          <img class="regular-gif" src="./pdaf_files/Qualitative/a2297c18-876eb30b/8.gif">
         </div>
       </div>
       
       <div class="img-container">
         <div class="image-with-caption">
-          <img class="regular-gif" src="">
+          <img class="regular-gif" src="./pdaf_files/Qualitative/a91b7555-00000845/0_Input.jpg">
         </div>
         <div class="image-with-caption">
-          <img class="regular-gif" src="">
+          <img class="regular-gif" src="./pdaf_files/Qualitative/a91b7555-00000845/8.gif">
         </div>
         <div class="image-with-caption">
-          <img class="regular-gif" src="">
+          <img class="regular-gif" src="./pdaf_files/Qualitative/a91b7555-00000850/0_Input.jpg">
         </div>
         <div class="image-with-caption">
-          <img class="regular-gif" src="">
+          <img class="regular-gif" src="./pdaf_files/Qualitative/a91b7555-00000850/8.gif">
         </div>
       </div>
       
-      <div class="img-container">
+      <!-- <div class="img-container">
         <div class="image-with-caption">
-          <img class="regular-gif" src="">
+          <img class="regular-gif" src="./pdaf_files/Qualitative/bdd100k/0_Input.jpg">
         </div>
         <div class="image-with-caption">
-          <img class="regular-gif" src="">
+          <img class="regular-gif" src="./pdaf_files/Qualitative/bdd100k/8.gif">
         </div>
         <div class="image-with-caption">
-          <img class="regular-gif" src="">
+          <img class="regular-gif" src="./pdaf_files/Qualitative/DT6tG3glZGxaht7hDYxI3Q/0_Input.jpg ">
         </div>
         <div class="image-with-caption">
-          <img class="regular-gif" src="">
+          <img class="regular-gif" src="./pdaf_files/Qualitative/DT6tG3glZGxaht7hDYxI3Q/8.gif">
         </div>
-      </div>
+      </div> -->
 
     </div>
   </div>
